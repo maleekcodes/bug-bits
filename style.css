@@ -21,6 +21,7 @@
 html {
     font-size: 62.5%;
     background-color: var(--color-white);
+    overflow: hidden;
 }
 
 body {
@@ -134,6 +135,9 @@ body {
     animation-delay: 6.8s;
 }
 
+audio {
+    opacity: 0;
+}
 
 .created {
     position: absolute;
@@ -165,7 +169,7 @@ body {
     display: inline-block;
 }
 .score::before {
-    content: "Bugs: ";
+    content: "Bugs🐞: ";
     display: inline-block;
     margin-right: 1rem;
 }
