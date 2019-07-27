@@ -1,0 +1,261 @@
+/* CSS Variables */
+
+:root {
+    counter-reset: selectedRadioCount, unSelectedRadioCount;
+    --color-white: #ffffff;
+    --color-black: #a59f9f;
+    --color-grey: #484848;
+    --color-glow: #00000;
+    --color-glow-2: #ff6c00;
+}
+
+/* Some CSS RESET here */
+*,
+*::after,
+*::before {
+    margin:0;
+    padding:0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    background-color: var(--color-white);
+}
+
+body {
+    box-sizing: border-box;
+    color: var(--color-black);
+    min-height: 100vh;
+}
+
+.splash-screen__box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.splash-screen__logo {
+    display: flex;
+}
+
+.splash-screen__letter {
+    list-style: none;
+    font-size: 5rem;
+    letter-spacing: 1.5rem;
+    color: var(--color-grey);
+    text-shadow: none;
+    animation: text-animate 1s infinite linear;
+}
+
+.splash-screen__letter:nth-child(1) {
+    animation-delay: .2s;
+}
+.splash-screen__letter:nth-child(2) {
+    animation-delay: .4s;
+}
+.splash-screen__letter:nth-child(3) {
+    animation-delay: .6s;
+}
+
+.splash-screen__letter:nth-child(5) {
+    animation-delay: .8s;
+}
+.splash-screen__letter:nth-child(6) {
+    animation-delay:  1s;
+}
+.splash-screen__letter:nth-child(7) {
+    animation-delay: 1.2s;
+}
+.splash-screen__letter:nth-child(8) {
+    animation-delay: 1.4s;
+}
+
+.button {
+    margin-top: 3rem;
+}
+
+.bug {
+    display: block;
+    position: absolute;
+    bottom: -10rem;
+    left: 20rem;
+    height: 96px;
+    width: calc(41.2rem / 7);
+    animation: bug-animate 5s  steps(7) infinite forwards; 
+    background-image: url("spider-alive.png");
+}
+
+.bug:nth-child(1) {
+    left: 20rem;
+    animation-delay: 1s;
+}
+
+.bug:nth-child(2) {
+    left: 30rem;
+    animation-delay: 2s;
+}
+
+.bug:nth-child(3) {
+    left: 40rem;
+    animation-delay: 3s;
+}
+
+.bug:nth-child(4) {
+    left: 50rem;
+    animation-delay: 4s;
+}
+
+.bug:nth-child(5) {
+    left: 60rem;
+    animation-delay: 5s;
+}
+
+.bug:nth-child(6) {
+    left: 70rem;
+    animation-delay: 6s;
+}
+
+.bug:nth-child(7) {
+    left: 80rem;
+    animation-delay: 6.2s;
+}
+.bug:nth-child(8) {
+    left: 90rem;
+    animation-delay: 6.4s;
+}
+.bug:nth-child(9) {
+    left: 100rem;
+    animation-delay: 6.6s;
+}
+.bug:nth-child(10) {
+    left: 110rem;
+    animation-delay: 6.8s;
+}
+
+
+.created {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.exit {
+    position: absolute;
+    top: 10rem;
+    right: 10rem;
+    font-size: 2rem;
+    z-index: 999999;
+    color: var(--color-black) !important;
+}
+
+
+.score {
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+    font-size: 2rem;
+    z-index: 999999;
+}
+
+.score::after {
+    content: counter(unSelectedRadioCount);
+    display: inline-block;
+}
+.score::before {
+    content: "Bugs: ";
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+input[type='radio']{
+    counter-increment: unSelectedRadioCount;
+  }
+  input[type='radio']:checked{
+    counter-increment: selectedRadioCount;
+  }
+input[type="radio"]:not(input[type='radio']):checked{
+    counter-increment: unSelectedRadioCount 1 selectedRadioCount;
+  }
+
+
+.bug_radio {
+    opacity: 0;
+}
+.bug_radio:checked + .bug {
+    opacity: 0;
+    transition: all 1s;
+    transform: rotate(120deg);
+    transform-origin: 60%;
+}
+
+.bug__label {
+    display: block;
+}
+
+
+/* Animations */
+
+
+
+@keyframes bug-animate {
+   from {
+       background-position: 0;
+       bottom: -10rem;
+   }
+
+   to {
+       background-position: -51.2rem;
+       bottom: 100%;
+   }
+}
+
+@keyframes text-animate {
+
+    0% {
+        color: var(--color-grey);
+        text-shadow: none;
+    }
+
+    18% {
+        color: var(--color-grey);
+        text-shadow: none;
+    }
+
+    20% {
+        color: var(--color-glow);
+        text-shadow: 0 0 .7rem var(--color-glow), 0 0 .2rem var(--color-glow-2);
+    }
+
+    30% {
+        color: var(--color-grey);
+        text-shadow: none;
+    }
+
+    35% {
+        color: var(--color-glow);
+        text-shadow: 0 0 .7rem var(--color-glow), 0 0 .2rem var(--color-glow-2);
+    }
+
+    70% {
+        color: var(--color-grey);
+        text-shadow: none;
+    }
+
+    85% {
+        color: var(--color-glow);
+        text-shadow: 0 0 .7rem var(--color-glow), 0 0 .2rem var(--color-glow-2);
+    }
+
+    90% {
+        color: var(--color-grey);
+        text-shadow: none;
+    }
+
+    100% {
+        color: var(--color-glow);
+        text-shadow: 0 0 .7rem var(--color-glow), 0 0 .2rem var(--color-glow-2);
+    }
+}
