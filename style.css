@@ -77,6 +77,20 @@ body {
     margin-top: 3rem;
 }
 
+.splash-screen_text {
+    width: 46rem;
+    font-size: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);
+}
+
+.typewritter {
+    animation: typing 4s steps(40) 1s 1 normal both,
+    blinkTextCursor 500ms steps(40) infinite normal;
+}
+
+
 .bug {
     display: block;
     position: absolute;
@@ -202,7 +216,25 @@ input[type="radio"]:not(input[type='radio']):checked{
 
 /* Animations */
 
+@keyframes typing {
+    from {
+        width: 0;
+    }
 
+    to {
+        width: 46rem;
+    }
+}
+
+@keyframes blinkTextCursor {
+    from {
+        border-right-color: var(--color-black);
+    }
+
+    to {
+        border-right-color: transparent;
+    }
+}
 
 @keyframes bug-animate {
    from {
